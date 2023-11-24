@@ -43,7 +43,7 @@ public class PedidoDao implements GenericDao<Pedido>{
 
         //Abrir a conexão com a base de dados
         openHelper = new SqLiteDataHelper(this.context,
-                "PDV_BD", null, 1);
+                "PDV", null, 1);
 
         //instanciando a base de dados
         baseDados = openHelper.getWritableDatabase();

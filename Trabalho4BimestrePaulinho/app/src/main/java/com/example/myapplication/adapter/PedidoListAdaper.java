@@ -39,7 +39,7 @@ public class PedidoListAdaper extends RecyclerView.Adapter<PedidoListAdaper.View
         holder.tvCodigo.setText(String.valueOf(pedidoSelecionado.getCodigo()));
         holder.tvNomeCliente.setText(pedidoSelecionado.getNomeCliente());
         holder.tvNomeProduto.setText(pedidoSelecionado.getNomeProduto());
-        holder.tvQuantidade.setText(pedidoSelecionado.getQuantidade());
+        holder.tvQuantidade.setText(String.valueOf(pedidoSelecionado.getQuantidade()));
     }
 
     @Override

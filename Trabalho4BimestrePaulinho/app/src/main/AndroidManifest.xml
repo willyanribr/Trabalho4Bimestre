@@ -15,8 +15,13 @@
         <activity
             android:name=".view.PedidoActivity"
             android:exported="false" />
+
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.MenuActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,12 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
 import com.example.myapplication.helper.SqLiteDataHelper;
+import com.example.myapplication.model.Login;
 import com.example.myapplication.model.Pedido;
+
 import java.util.ArrayList;
 
 
-public class PedidoDao implements GenericDao<Pedido>{
+public class PedidoDao implements GenericDao<Pedido> {
 
     private SQLiteOpenHelper openHelper;
 
@@ -19,7 +22,7 @@ public class PedidoDao implements GenericDao<Pedido>{
     private SQLiteDatabase baseDados;
 
     //nome das colunas da tabela;
-    private String[]colunas = {"CODIGO", "CLIENTE", "PRODUTO", "QUANTIDADE"};
+    private String[] colunas = {"CODIGO", "CLIENTE", "PRODUTO", "QUANTIDADE"};
 
     //nome da tabela
     private String tabela = "PEDIDO";
@@ -30,15 +33,15 @@ public class PedidoDao implements GenericDao<Pedido>{
     private static PedidoDao instancia;
 
 
-    public static PedidoDao getInstancia(Context context){
-        if(instancia == null){
+    public static PedidoDao getInstancia(Context context) {
+        if (instancia == null) {
             return instancia = new PedidoDao(context);
-        }else{
+        } else {
             return instancia;
         }
     }
 
-    private PedidoDao(Context context){
+    private PedidoDao(Context context) {
         this.context = context;
 
         //Abrir a conexão com a base de dados
@@ -48,12 +51,11 @@ public class PedidoDao implements GenericDao<Pedido>{
         //instanciando a base de dados
         baseDados = openHelper.getWritableDatabase();
 
-
     }
 
     @Override
     public long insert(Pedido obj) {
-        try{
+        try {
             ContentValues valores = new ContentValues();
             valores.put(colunas[0], obj.getCodigo());
             valores.put(colunas[1], obj.getNomeCliente());
@@ -62,38 +64,38 @@ public class PedidoDao implements GenericDao<Pedido>{
 
             return baseDados.insert(tabela, null, valores);
 
-        }catch (android.database.SQLException ex){
-            Log.e("PEDIDO", "ERRO: PedidoDao.insert() "+ex.getMessage());
+        } catch (android.database.SQLException ex) {
+            Log.e("PEDIDO", "ERRO: PedidoDao.insert() " + ex.getMessage());
         }
         return 0;
     }
 
     @Override
     public long update(Pedido obj) {
-        try{
+        try {
             ContentValues valores = new ContentValues();
             valores.put(colunas[1], obj.getNomeCliente());
             valores.put(colunas[2], obj.getNomeProduto());
-            String[]identificador = {String.valueOf(obj.getCodigo())};
+            String[] identificador = {String.valueOf(obj.getCodigo())};
 
-            return baseDados.update(tabela,  valores,
-                    colunas[0]+"= ?", identificador);
+            return baseDados.update(tabela, valores,
+                    colunas[0] + "= ?", identificador);
 
-        }catch (android.database.SQLException ex){
-            Log.e("PEDIDO", "ERRO: PedidoDao.update() "+ex.getMessage());
+        } catch (android.database.SQLException ex) {
+            Log.e("PEDIDO", "ERRO: PedidoDao.update() " + ex.getMessage());
         }
         return 0;
     }
 
     @Override
     public long delete(Pedido obj) {
-        try{
-            String[]identificador = {String.valueOf(obj.getCodigo())};
+        try {
+            String[] identificador = {String.valueOf(obj.getCodigo())};
 
             return baseDados.delete(tabela,
-                    colunas[0]+"= ?", identificador);
-        }catch (android.database.SQLException ex){
-            Log.e("PEDIDO", "ERRO: PedidoDao.delete() "+ex.getMessage());
+                    colunas[0] + "= ?", identificador);
+        } catch (android.database.SQLException ex) {
+            Log.e("PEDIDO", "ERRO: PedidoDao.delete() " + ex.getMessage());
         }
         return 0;
     }
@@ -101,12 +103,12 @@ public class PedidoDao implements GenericDao<Pedido>{
     @Override
     public ArrayList<Pedido> getAll() {
         ArrayList<Pedido> lista = new ArrayList<>();
-        try{
+        try {
             Cursor cursor = baseDados.query(tabela, colunas, null, null, null,
-                    null, colunas[0]+" desc");
+                    null, colunas[0] + " desc");
 
-            if(cursor.moveToFirst()){
-                do{
+            if (cursor.moveToFirst()) {
+                do {
                     Pedido pedido = new Pedido();
                     pedido.setCodigo(cursor.getInt(0));
                     pedido.setNomeCliente(cursor.getString(1));
@@ -115,11 +117,11 @@ public class PedidoDao implements GenericDao<Pedido>{
 
                     lista.add(pedido);
 
-                }while (cursor.moveToNext());
+                } while (cursor.moveToNext());
             }
 
-        }catch (android.database.SQLException ex){
-            Log.e("UNIPAR", "ERRO: PedidoDao.getAll() "+ex.getMessage());
+        } catch (android.database.SQLException ex) {
+            Log.e("UNIPAR", "ERRO: PedidoDao.getAll() " + ex.getMessage());
         }
 
         return lista;
@@ -127,14 +129,15 @@ public class PedidoDao implements GenericDao<Pedido>{
 
     @Override
     public Pedido getById(int id) {
-        try{
-            String[]identificador = {String.valueOf(id)};
-            Cursor cursor = baseDados.query(tabela, colunas, colunas[0]+"= ?", identificador,
+        try {
+            String[] identificador = {String.valueOf(id)};
+            Cursor cursor = baseDados.query(tabela, colunas, colunas[0] + "= ?", identificador,
                     null, null, null);
 
-            if(cursor.moveToFirst()){
+            if (cursor.moveToFirst()) {
 
                 Pedido pedido = new Pedido();
+
                 pedido.setCodigo(cursor.getInt(0));
                 pedido.setNomeCliente(cursor.getString(1));
                 pedido.setNomeProduto(cursor.getString(2));
@@ -143,8 +146,8 @@ public class PedidoDao implements GenericDao<Pedido>{
                 return pedido;
             }
 
-        }catch (android.database.SQLException ex){
-            Log.e("PEDIDO", "ERRO: PedidoDao.getById() "+ex.getMessage());
+        } catch (android.database.SQLException ex) {
+            Log.e("PEDIDO", "ERRO: PedidoDao.getById() " + ex.getMessage());
         }
         return null;
     }

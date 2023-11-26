@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#673AB7"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginLeft="38dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Nome:"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/edNome"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginLeft="38dp"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:text="Usuário:"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:id="@+id/edUsuario"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginLeft="38dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Senha:"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/edSenha"/>
+
+
+</LinearLayout>

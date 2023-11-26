@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:gravity="center"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

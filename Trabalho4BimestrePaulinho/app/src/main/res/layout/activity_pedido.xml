@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#673AB7"
     tools:context=".view.PedidoActivity">
 
     <LinearLayout
@@ -17,24 +18,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="CÓDIGO"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="CLIENTE"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="PRODUTO"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="QUANTIDADE"/>
 
     </LinearLayout>
@@ -50,18 +55,20 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         android:id="@+id/rvPedidos"
         android:layout_below="@+id/lnLine"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btCadastroPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btCadastroPedido"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:backgroundTint="@android:color/holo_green_dark"/>
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#4CAF50"
+        android:src="@drawable/ic_input_add" />
 
 
 </RelativeLayout>

@@ -33,11 +33,12 @@
         android:text="Receber Pagamento" />
 
     <Button
-        android:id="@+id/btNF"
+        android:id="@+id/btRelatorio"
         android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="Gera Nota Fiscal " />
+        android:onClick="abrirRelatorio"
+        android:text="Relatório" />
 
 </LinearLayout>

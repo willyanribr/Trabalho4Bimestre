@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btLogin;
     private Button btCadastro;
     private LoginController loginController;
-    private Context context;
+    private Context context = this;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
                         if (edUsuario.getText().toString().equalsIgnoreCase(login.getUsuario()) && edSenha.getText().toString().equalsIgnoreCase(login.getSenha().toString())) {
                             abrirCadastroPedidos();
 
+                        }else{
+                            Toast.makeText(context, "Credenciais incorretas, verifique!", Toast.LENGTH_LONG).show();
                         }
                     } else {
                         Toast.makeText(context, "Login inválido", Toast.LENGTH_LONG).show();

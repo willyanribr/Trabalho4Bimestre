@@ -30,6 +30,9 @@ public class PedidoActivity extends AppCompatActivity {
     private EditText edNomeCliente;
     private EditText ednomeProduto;
     private EditText edQuantidade;
+    private EditText edValorUnitario;
+    private EditText edFormaPagamento;
+    private EditText edValorTotal;
     private View viewAlert;
     private RecyclerView rvPedidos;
 
@@ -55,10 +58,11 @@ public class PedidoActivity extends AppCompatActivity {
         //Carregando o arquivo xml do layout
         viewAlert = getLayoutInflater().inflate(R.layout.dialog_cadastro_pedido, null);
 
-        edCodigo = viewAlert.findViewById(R.id.edCodigo);
         edNomeCliente = viewAlert.findViewById(R.id.edNome);
         ednomeProduto = viewAlert.findViewById(R.id.edProduto);
         edQuantidade = viewAlert.findViewById(R.id.edQuantidade);
+        edValorUnitario = viewAlert.findViewById(R.id.edValorUnitario);
+        edFormaPagamento = viewAlert.findViewById(R.id.edFormaPagamento);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -89,10 +93,11 @@ public class PedidoActivity extends AppCompatActivity {
 
     public void salvarDados() {
         String retorno = controller.salvarPedido(
-                edCodigo.getText().toString(),
                 edNomeCliente.getText().toString(),
                 ednomeProduto.getText().toString(),
-                edQuantidade.getText().toString());
+                edQuantidade.getText().toString(),
+                edValorUnitario.getText().toString(),
+                edFormaPagamento.getText().toString());
 
         if (retorno != null) {
             if (retorno.contains("CODIGO")) {

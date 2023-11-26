@@ -17,19 +17,10 @@ import java.util.ArrayList;
 public class PedidoDao implements GenericDao<Pedido> {
 
     private SQLiteOpenHelper openHelper;
-
-    //Base de Dados
     private SQLiteDatabase baseDados;
-
-    //nome das colunas da tabela;
-    private String[] colunas = {"CODIGO", "CLIENTE", "PRODUTO", "QUANTIDADE"};
-
-    //nome da tabela
+    private String[] colunas = {"CODIGO", "CLIENTE", "PRODUTO", "QUANTIDADE", "VALORUNITARIO", "VALORTOTAL", "FORMAPAGAMENTO"};
     private String tabela = "PEDIDO";
-
-    //Contexto (view)
     private Context context;
-
     private static PedidoDao instancia;
 
 
@@ -46,7 +37,7 @@ public class PedidoDao implements GenericDao<Pedido> {
 
         //Abrir a conexão com a base de dados
         openHelper = new SqLiteDataHelper(this.context,
-                "PDV", null, 1);
+                "SPEED_SHOP", null, 1);
 
         //instanciando a base de dados
         baseDados = openHelper.getWritableDatabase();
@@ -57,10 +48,12 @@ public class PedidoDao implements GenericDao<Pedido> {
     public long insert(Pedido obj) {
         try {
             ContentValues valores = new ContentValues();
-            valores.put(colunas[0], obj.getCodigo());
             valores.put(colunas[1], obj.getNomeCliente());
             valores.put(colunas[2], obj.getNomeProduto());
             valores.put(colunas[3], obj.getQuantidade());
+            valores.put(colunas[4], obj.getValorUnitario());
+            valores.put(colunas[5], obj.getValorTotal());
+            valores.put(colunas[6], obj.getFormaPagamento());
 
             return baseDados.insert(tabela, null, valores);
 
@@ -105,15 +98,17 @@ public class PedidoDao implements GenericDao<Pedido> {
         ArrayList<Pedido> lista = new ArrayList<>();
         try {
             Cursor cursor = baseDados.query(tabela, colunas, null, null, null,
-                    null, colunas[0] + " desc");
+                    null, colunas[0] + " asc");
 
             if (cursor.moveToFirst()) {
                 do {
                     Pedido pedido = new Pedido();
+
                     pedido.setCodigo(cursor.getInt(0));
                     pedido.setNomeCliente(cursor.getString(1));
                     pedido.setNomeProduto(cursor.getString(2));
                     pedido.setQuantidade(cursor.getInt(3));
+                    pedido.setFormaPagamento(cursor.getString(6));
 
                     lista.add(pedido);
 
@@ -142,6 +137,8 @@ public class PedidoDao implements GenericDao<Pedido> {
                 pedido.setNomeCliente(cursor.getString(1));
                 pedido.setNomeProduto(cursor.getString(2));
                 pedido.setQuantidade(cursor.getInt(3));
+                pedido.setValorUnitario(cursor.getDouble(4));
+                pedido.setValorTotal(cursor.getDouble(5));
 
                 return pedido;
             }
@@ -150,5 +147,34 @@ public class PedidoDao implements GenericDao<Pedido> {
             Log.e("PEDIDO", "ERRO: PedidoDao.getById() " + ex.getMessage());
         }
         return null;
+    }
+    public ArrayList<Pedido> getAllRelatorio() {
+        ArrayList<Pedido> lista = new ArrayList<>();
+        try {
+            Cursor cursor = baseDados.query(tabela, colunas, null, null, null,
+                    null, colunas[0] + " asc");
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Pedido pedido = new Pedido();
+
+                    pedido.setCodigo(cursor.getInt(0));
+                    pedido.setNomeCliente(cursor.getString(1));
+                    pedido.setNomeProduto(cursor.getString(2));
+                    pedido.setQuantidade(cursor.getInt(3));
+                    pedido.setValorUnitario(cursor.getDouble(4));
+                    pedido.setValorTotal(cursor.getDouble(5));
+                    pedido.setFormaPagamento(cursor.getString(6));
+
+                    lista.add(pedido);
+
+                } while (cursor.moveToNext());
+            }
+
+        } catch (android.database.SQLException ex) {
+            Log.e("UNIPAR", "ERRO: PedidoDao.getAll() " + ex.getMessage());
+        }
+
+        return lista;
     }
 }

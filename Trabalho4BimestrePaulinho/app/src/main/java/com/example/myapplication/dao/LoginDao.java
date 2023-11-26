@@ -44,7 +44,7 @@ public class LoginDao implements GenericDao<Login> {
     private LoginDao(Context context) {
         this.context = context;
 
-        openHelper = new SqLiteDataHelper(this.context, "LOGIN", null, 1);
+        openHelper = new SqLiteDataHelper(this.context, "SPEED_SHOP", null, 1);
 
         baseDados = openHelper.getWritableDatabase();
     }
@@ -118,8 +118,8 @@ public class LoginDao implements GenericDao<Login> {
 
             if(cursor.moveToFirst()){
                 Login login = new Login();
-                login.setUsuario(cursor.getString(0));
-                login.setSenha(cursor.getString(1));
+                login.setUsuario(cursor.getString(1));
+                login.setSenha(cursor.getString(2));
 
                 return login;
             }
@@ -134,13 +134,13 @@ public class LoginDao implements GenericDao<Login> {
         try{
             String[]identificador = {usuario};
             Cursor cursor = baseDados.query(tabela, colunas,
-                    colunas[0]+"= ?", identificador,
+                    colunas[1]+"= ?", identificador,
                     null, null, null);
 
             if(cursor.moveToFirst()){
                 Login login = new Login();
-                login.setUsuario(cursor.getString(0));
-                login.setSenha(cursor.getString(1));
+                login.setUsuario(cursor.getString(1));
+                login.setSenha(cursor.getString(2));
 
                 return login;
             }

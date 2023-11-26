@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.example.myapplication.dao.PedidoDao;
 import com.example.myapplication.model.Pedido;
-import com.example.myapplication.view.PedidoActivity;
 
 import java.util.ArrayList;
 
@@ -16,39 +15,49 @@ public class PedidoController {
         this.context = context;
     }
 
-    public String salvarPedido(String codigo, String nome, String produto, String quantidade) {
+    public String salvarPedido(String nome, String produto, String quantidade, String valorUnitario, String formaPagamento) {
 
-            if (codigo.equals("") || nome.isEmpty()) {
-                return "Informe o nome do Cliente!";
-            }
-            if (nome.equals("") || nome.isEmpty()) {
-                return "Informe o nome do Produto!";
-            }
-            if (produto.equals("") || nome.isEmpty()) {
-                return "Informe o nome do Produto!";
-            }
-            if (quantidade.equals("") || nome.isEmpty()) {
-                return "Informe o nome do Produto!";
-            }
+        if (nome.equals("") || nome.isEmpty()) {
+            return "Informe o nome do Produto!";
+        }
+        if (produto.equals("") || nome.isEmpty()) {
+            return "Informe o nome do Produto!";
+        }
+        if (quantidade.equals("") || nome.isEmpty()) {
+            return "Informe o nome do Produto!";
+        }
+        if (valorUnitario.equals("") || nome.isEmpty()) {
+            return "Informe o valor unitário do produto!";
+        }
 
-            Pedido pedido = new Pedido();
+        double valorUnitario1 = Double.parseDouble(String.valueOf(valorUnitario));
+        double valorTotal1;
+        int quantidade1 = Integer.parseInt(String.valueOf(quantidade));
 
-            if (pedido.equals(null)) {
-                return "O Código (" + codigo + ") já está cadastrado!";
-            } else {
-                pedido = new Pedido();
-                pedido.setCodigo(Integer.parseInt(codigo));
-                pedido.setNomeCliente(nome);
-                pedido.setNomeProduto(produto);
-                pedido.setQuantidade(Integer.parseInt(quantidade));
+        valorTotal1 = quantidade1 * valorUnitario1;
 
-                PedidoDao.getInstancia(context).insert(pedido);
+        Pedido pedido = new Pedido();
 
-            }
+        if (pedido.equals(null)) {
+            return "O Código já está cadastrado!";
+        } else {
+            pedido = new Pedido();
 
+            pedido.setNomeCliente(nome);
+            pedido.setNomeProduto(produto);
+            pedido.setQuantidade(Integer.parseInt(quantidade));
+            pedido.setValorUnitario(Double.parseDouble(valorUnitario));
+            pedido.setValorTotal(valorTotal1);
+            pedido.setFormaPagamento(formaPagamento);
+
+            PedidoDao.getInstancia(context).insert(pedido);
+        }
         return null;
     }
 
+    public ArrayList<Pedido> retornarRelatorio() {
+        return PedidoDao.getInstancia(context).getAllRelatorio();
+    }
     public ArrayList<Pedido> retornarTodosPedidos() {
         return PedidoDao.getInstancia(context).getAll();
     }

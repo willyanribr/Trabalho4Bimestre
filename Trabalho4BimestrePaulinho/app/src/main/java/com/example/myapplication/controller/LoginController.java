@@ -11,6 +11,9 @@ public class LoginController {
 
     public String salvarLogin(String nome, String usuario, String senha) {
         try {
+            if (senha.equals("") || senha.isEmpty()) {
+                return "Informe um Nome!";
+            }
             if (usuario.equals("") || usuario.isEmpty()) {
                 return "Informe o Usuario!";
             }
@@ -19,6 +22,7 @@ public class LoginController {
             }
 
             Login login = new Login();
+
             login.setNome(nome);
             login.setUsuario(usuario);
             login.setSenha(senha);

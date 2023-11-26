@@ -14,7 +14,7 @@ public class MenuActivity extends AppCompatActivity {
 
     private Button btCadastroPDV;
     private Button btRPagamento;
-    private Button btNF;
+    private Button btRelatorio;
     private View viewAlert;
     private AlertDialog dialog;
 
@@ -25,10 +25,13 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void abrirCadastroPedido(View view) {
-        Intent intent = new Intent(this,
-                PedidoActivity.class);
+        Intent intent = new Intent(this, PedidoActivity.class);
         startActivity(intent);
 
+    }
+    public void abrirRelatorio(View view){
+        Intent intent = new Intent(this, RelatorioActivity.class);
+        startActivity(intent);
     }
 }
 

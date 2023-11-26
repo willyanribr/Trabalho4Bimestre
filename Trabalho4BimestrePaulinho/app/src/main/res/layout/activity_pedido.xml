@@ -18,6 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="10dp"
             android:textColor="@color/white"
             android:text="CÓDIGO"/>
 
@@ -25,6 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="10dp"
             android:textColor="@color/white"
             android:text="CLIENTE"/>
 
@@ -32,6 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="10dp"
             android:textColor="@color/white"
             android:text="PRODUTO"/>
 
@@ -39,8 +42,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="10dp"
+            android:gravity="center"
             android:textColor="@color/white"
-            android:text="QUANTIDADE"/>
+            android:text="QTDE"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="10dp"
+            android:gravity="right"
+            android:textColor="@color/white"
+            android:text="PAGAMENTO"/>
 
     </LinearLayout>
 

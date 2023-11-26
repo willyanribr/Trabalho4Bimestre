@@ -34,12 +34,14 @@ public class RelatorioListAdapter extends RecyclerView.Adapter<RelatorioListAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Pedido pedidoSelecionado = listaPedidos.get(position);
+
         holder.tvCodigo.setText(String.valueOf(pedidoSelecionado.getCodigo()));
         holder.tvNomeCliente.setText(pedidoSelecionado.getNomeCliente());
         holder.tvNomeProduto.setText(pedidoSelecionado.getNomeProduto());
         holder.tvQuantidade.setText(String.valueOf(pedidoSelecionado.getQuantidade()));
         holder.tvValorUnitario.setText(String.valueOf(pedidoSelecionado.getValorUnitario()));
         holder.tvValorTotal.setText(String.valueOf(pedidoSelecionado.getValorTotal()));
+        holder.tvFormaPagamento.setText(String.valueOf(pedidoSelecionado.getFormaPagamento()));
     }
 
     @Override
@@ -65,7 +67,7 @@ public class RelatorioListAdapter extends RecyclerView.Adapter<RelatorioListAdap
             this.tvQuantidade = itemView.findViewById(R.id.tvQuantidade);
             this.tvValorUnitario = itemView.findViewById(R.id.tvValorUnitario);
             this.tvValorTotal = itemView.findViewById(R.id.tvValorTotal);
-            this.tvFormaPagamento = itemView.findViewById(R.id.edFormaPagamento);
+            this.tvFormaPagamento = itemView.findViewById(R.id.tvFormaPagamento);
         }
     }
 }

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#673AB7"
+        android:background="#338023"
         android:gravity="center"
         android:text="RELATÓRIO DE PEDIDOS"
         android:textColor="@color/white"

@@ -13,19 +13,22 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:text="Menu"
+        android:textColor="#338023"
         android:textSize="30sp" />
 
     <Button
         android:id="@+id/btCadastroPDV"
+        android:backgroundTint="@color/green"
         android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
         android:onClick="abrirCadastroPedido"
-        android:text="Cadastrar Pedido" />
+        android:text="Pedidos" />
 
     <Button
         android:id="@+id/btRelatorio"
+        android:backgroundTint="@color/green"
         android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"

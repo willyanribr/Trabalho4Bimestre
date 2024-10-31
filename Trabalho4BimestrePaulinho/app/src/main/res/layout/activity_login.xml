@@ -19,11 +19,12 @@
             android:layout_gravity="center"
             android:layout_marginTop="200dp"
             android:text="SPEED SHOP"
-            android:textColor="#673AB7"
+            android:textColor="#338023"
             android:textSize="25dp"/>
 
         <Button
             android:id="@+id/btLogin"
+            android:backgroundTint="@color/green"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -33,6 +34,7 @@
 
         <Button
             android:id="@+id/btCadastro"
+            android:backgroundTint="@color/green"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center"

@@ -17,19 +17,6 @@ public class PedidoController {
 
     public String salvarPedido(String nome, String produto, String quantidade, String valorUnitario, String formaPagamento) {
 
-        if (nome.equals("") || nome.isEmpty()) {
-            return "Informe o nome do Produto!";
-        }
-        if (produto.equals("") || nome.isEmpty()) {
-            return "Informe o nome do Produto!";
-        }
-        if (quantidade.equals("") || nome.isEmpty()) {
-            return "Informe o nome do Produto!";
-        }
-        if (valorUnitario.equals("") || nome.isEmpty()) {
-            return "Informe o valor unitário do produto!";
-        }
-
         double valorUnitario1 = Double.parseDouble(String.valueOf(valorUnitario));
         double valorTotal1;
         int quantidade1 = Integer.parseInt(String.valueOf(quantidade));
@@ -39,7 +26,7 @@ public class PedidoController {
         Pedido pedido = new Pedido();
 
         if (pedido.equals(null)) {
-            return "O Código já está cadastrado!";
+            return "Pedido inválido!";
         } else {
             pedido = new Pedido();
 
@@ -60,5 +47,22 @@ public class PedidoController {
     }
     public ArrayList<Pedido> retornarTodosPedidos() {
         return PedidoDao.getInstancia(context).getAll();
+    }
+    public String checkDadosInformados(String nome, String produto, String quantidade, String valorUnitario, String formaPagamento) {
+        String msgErro = "";
+
+        if (nome.equals("") || nome.isEmpty()) {
+            msgErro = "O nome do cliente é obrigatório!";
+        } else if (produto.equals("") || produto.isEmpty()){
+            msgErro = "O nome do produto é obrigatório!";
+        } else if (quantidade.equals("") || quantidade.isEmpty()){
+            msgErro = "A quantidade é obrigatório!";
+        } else if (valorUnitario.equals("") || valorUnitario.isEmpty()){
+            msgErro = "O valor unitário do produto é obrigatório!";
+        } else if (formaPagamento.equals("") || formaPagamento.isEmpty()){
+            msgErro = "A forma de pagamento do produto é obrigatório!";
+        }
+
+        return msgErro;
     }
 }

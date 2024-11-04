@@ -9,30 +9,33 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.PedidoListAdaper;
 import com.example.myapplication.controller.PedidoController;
+import com.example.myapplication.model.FormaPagamento;
 import com.example.myapplication.model.Pedido;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PedidoActivity extends AppCompatActivity {
 
     private FloatingActionButton btCadastroPedido;
     private AlertDialog dialog;
     private PedidoController controller;
-    private EditText edCodigo;
     private EditText edNomeCliente;
     private EditText ednomeProduto;
     private EditText edQuantidade;
     private EditText edValorUnitario;
-    private EditText edFormaPagamento;
-    private EditText edValorTotal;
+    private Spinner spinnerPagamento;
     private View viewAlert;
     private RecyclerView rvPedidos;
 
@@ -50,7 +53,6 @@ public class PedidoActivity extends AppCompatActivity {
                 abrirCadastro();
             }
         });
-
         atualizarListaPedido();
     }
 
@@ -62,7 +64,19 @@ public class PedidoActivity extends AppCompatActivity {
         ednomeProduto = viewAlert.findViewById(R.id.edProduto);
         edQuantidade = viewAlert.findViewById(R.id.edQuantidade);
         edValorUnitario = viewAlert.findViewById(R.id.edValorUnitario);
-        edFormaPagamento = viewAlert.findViewById(R.id.edFormaPagamento);
+        spinnerPagamento = viewAlert.findViewById(R.id.spinnerPagamento);
+        FormaPagamento[] formasPagamento = {
+                new FormaPagamento(1, "Dinheiro"),
+                new FormaPagamento(2, "Cartão"),
+                new FormaPagamento(3, "PIX"),
+                new FormaPagamento(4, "Boleto")};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, Arrays.stream(formasPagamento).map(FormaPagamento::getNome).
+                toArray(String[]::new));
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerPagamento.setAdapter(adapter);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -92,44 +106,32 @@ public class PedidoActivity extends AppCompatActivity {
     }
 
     public void salvarDados() {
-
-        String retorno = controller.salvarPedido(
+//validação de itens vazios
+        String msgErro = controller.checkDadosInformados(
                 edNomeCliente.getText().toString(),
                 ednomeProduto.getText().toString(),
                 edQuantidade.getText().toString(),
                 edValorUnitario.getText().toString(),
-                edFormaPagamento.getText().toString());
+                spinnerPagamento.getSelectedItem().toString());
 
-        if (retorno != null) {
-            if (retorno.contains("CODIGO")) {
-                edCodigo.setError(retorno);
-                edCodigo.requestFocus();
-            }
-            if (retorno.contains("NOME CLIENTE")) {
-                edNomeCliente.setError(retorno);
-                edNomeCliente.requestFocus();
-            }
-            if (retorno.contains("NOME PRODUTO")) {
-                ednomeProduto.setError(retorno);
-                ednomeProduto.requestFocus();
-            }
-            if (retorno.contains("QUANTIDADE")) {
-                edQuantidade.setError(retorno);
-                edQuantidade.requestFocus();
-            }
+        if (msgErro.equals("") || msgErro.isEmpty()) {
+            controller.salvarPedido(
+                    edNomeCliente.getText().toString(),
+                    ednomeProduto.getText().toString(),
+                    edQuantidade.getText().toString(),
+                    edValorUnitario.getText().toString(),
+                    spinnerPagamento.getSelectedItem().toString());
 
-        } else {
-            Toast.makeText(this,
-                    "Pedido salvo com sucesso!",
-                    Toast.LENGTH_LONG).show();
-
+            Toast.makeText(this, "Pedido salvo com sucesso!", Toast.LENGTH_LONG).show();
             dialog.dismiss();
             atualizarListaPedido();
+        } else {
+            Toast.makeText(this, msgErro, Toast.LENGTH_LONG).show();
         }
     }
 
     /**
-     * Método cria e atualiza a lista de alunos
+     * Método atualiza a lista de alunos
      */
     private void atualizarListaPedido() {
         ArrayList<Pedido> listaPedidos = controller.retornarTodosPedidos();

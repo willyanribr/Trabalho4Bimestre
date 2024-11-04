@@ -32,6 +32,7 @@
 
     <EditText
         android:layout_width="match_parent"
+        android:inputType="number"
         android:layout_height="wrap_content"
         android:id="@+id/edQuantidade"/>
 
@@ -42,6 +43,7 @@
 
     <EditText
         android:layout_width="match_parent"
+        android:inputType="numberDecimal"
         android:layout_height="wrap_content"
         android:id="@+id/edValorUnitario"/>
     <TextView
@@ -49,9 +51,9 @@
         android:layout_height="wrap_content"
         android:text="Forma Pagamento:"/>
 
-    <EditText
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edFormaPagamento"/>
+        android:id="@+id/spinnerPagamento"/>
 
 </LinearLayout>

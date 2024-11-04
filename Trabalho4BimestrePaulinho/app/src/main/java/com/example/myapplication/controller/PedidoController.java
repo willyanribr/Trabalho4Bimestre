@@ -25,11 +25,6 @@ public class PedidoController {
 
         Pedido pedido = new Pedido();
 
-        if (pedido.equals(null)) {
-            return "Pedido inválido!";
-        } else {
-            pedido = new Pedido();
-
             pedido.setNomeCliente(nome);
             pedido.setNomeProduto(produto);
             pedido.setQuantidade(Integer.parseInt(quantidade));
@@ -38,8 +33,8 @@ public class PedidoController {
             pedido.setFormaPagamento(formaPagamento);
 
             PedidoDao.getInstancia(context).insert(pedido);
-        }
-        return null;
+
+        return pedido.getNomeProduto();
     }
 
     public ArrayList<Pedido> retornarRelatorio() {

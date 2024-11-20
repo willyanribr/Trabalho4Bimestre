@@ -1,9 +1,9 @@
-package com.example.myapplication.controller;
+package com.example.meuapppdv.controller;
 
 import android.content.Context;
 
-import com.example.myapplication.dao.LoginDao;
-import com.example.myapplication.model.Login;
+import com.example.meuapppdv.dao.LoginDao;
+import com.example.meuapppdv.model.Login;
 
 public class LoginController {
     private Context context;

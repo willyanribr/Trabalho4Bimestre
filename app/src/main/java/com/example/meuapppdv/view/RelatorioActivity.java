@@ -1,4 +1,4 @@
-package com.example.myapplication.view;
+package com.example.meuapppdv.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,12 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.myapplication.R;
-import com.example.myapplication.R.id;
-import com.example.myapplication.adapter.PedidoListAdaper;
-import com.example.myapplication.adapter.RelatorioListAdapter;
-import com.example.myapplication.controller.PedidoController;
-import com.example.myapplication.model.Pedido;
+import com.example.meuapppdv.R;
+import com.example.meuapppdv.R.id;
+import com.example.meuapppdv.adapter.RelatorioListAdapter;
+import com.example.meuapppdv.controller.PedidoController;
+import com.example.meuapppdv.model.Pedido;
 
 import java.util.ArrayList;
 

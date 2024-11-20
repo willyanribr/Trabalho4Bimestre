@@ -1,4 +1,4 @@
-package com.example.myapplication.dao;
+package com.example.meuapppdv.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,9 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.myapplication.helper.SqLiteDataHelper;
-import com.example.myapplication.model.Login;
-import com.example.myapplication.model.Pedido;
+import com.example.meuapppdv.helper.SqLiteDataHelper;
+import com.example.meuapppdv.model.Pedido;
 
 import java.util.ArrayList;
 

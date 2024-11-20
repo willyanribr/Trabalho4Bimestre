@@ -1,4 +1,4 @@
-package com.example.myapplication.view;
+package com.example.meuapppdv.view;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,11 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
-import com.example.myapplication.controller.LoginController;
-import com.example.myapplication.dao.LoginDao;
-import com.example.myapplication.dao.PedidoDao;
-import com.example.myapplication.model.Login;
+import com.example.meuapppdv.R;
+import com.example.meuapppdv.controller.LoginController;
+import com.example.meuapppdv.model.Login;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edUsuario;

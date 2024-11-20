@@ -1,7 +1,4 @@
-package com.example.myapplication.dao;
-
-import com.example.myapplication.model.Login;
-import com.example.myapplication.model.Pedido;
+package com.example.meuapppdv.dao;
 
 import java.util.ArrayList;
 

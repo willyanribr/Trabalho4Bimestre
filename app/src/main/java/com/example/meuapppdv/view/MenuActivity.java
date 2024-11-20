@@ -1,4 +1,4 @@
-package com.example.myapplication.view;
+package com.example.meuapppdv.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+import com.example.meuapppdv.R;
 
 public class MenuActivity extends AppCompatActivity {
 

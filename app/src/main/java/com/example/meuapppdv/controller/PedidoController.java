@@ -1,9 +1,9 @@
-package com.example.myapplication.controller;
+package com.example.meuapppdv.controller;
 
 import android.content.Context;
 
-import com.example.myapplication.dao.PedidoDao;
-import com.example.myapplication.model.Pedido;
+import com.example.meuapppdv.dao.PedidoDao;
+import com.example.meuapppdv.model.Pedido;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.myapplication.model;
+package com.example.meuapppdv.model;
 
 public class FormaPagamento {
     private int codigo;

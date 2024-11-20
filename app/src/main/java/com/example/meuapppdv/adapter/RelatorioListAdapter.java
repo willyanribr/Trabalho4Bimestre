@@ -1,4 +1,4 @@
-package com.example.myapplication.adapter;
+package com.example.meuapppdv.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.myapplication.R;
-import com.example.myapplication.model.Pedido;
+import com.example.meuapppdv.R;
+import com.example.meuapppdv.model.Pedido;
 import java.util.ArrayList;
 
 public class RelatorioListAdapter extends RecyclerView.Adapter<RelatorioListAdapter.ViewHolder> {

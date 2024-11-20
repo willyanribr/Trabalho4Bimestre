@@ -1,4 +1,4 @@
-package com.example.myapplication.view;
+package com.example.meuapppdv.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,21 +6,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.myapplication.R;
-import com.example.myapplication.adapter.PedidoListAdaper;
-import com.example.myapplication.controller.PedidoController;
-import com.example.myapplication.model.FormaPagamento;
-import com.example.myapplication.model.Pedido;
+import com.example.meuapppdv.R;
+import com.example.meuapppdv.adapter.PedidoListAdaper;
+import com.example.meuapppdv.controller.PedidoController;
+import com.example.meuapppdv.model.FormaPagamento;
+import com.example.meuapppdv.model.Pedido;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;

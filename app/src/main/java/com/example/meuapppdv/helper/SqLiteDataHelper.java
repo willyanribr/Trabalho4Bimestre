@@ -1,11 +1,8 @@
-package com.example.myapplication.helper;
+package com.example.meuapppdv.helper;
 
 import android.content.Context;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.NonNull;
 
 import org.jetbrains.annotations.Nullable;
 

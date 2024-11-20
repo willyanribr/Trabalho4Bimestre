@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:text="Menu"
-        android:textColor="#338023"
+        android:textColor="#2b6120"
         android:textSize="30sp" />
 
     <Button

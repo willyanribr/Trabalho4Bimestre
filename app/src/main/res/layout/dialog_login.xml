@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#673AB7"
+    android:background="@color/green"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -22,6 +22,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@color/white"
+        android:textColor="@android:color/black"
         android:id="@+id/edUsuario"/>
 
     <TextView
@@ -43,6 +44,7 @@
         android:background="@color/white"
         android:layout_marginBottom="30dp"
         android:inputType="textPassword"
+        android:textColor="@android:color/black"
         android:id="@+id/edSenha"/>
 
 

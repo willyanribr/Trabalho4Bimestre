@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="title_activity_relatorio">activity_relatorio</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

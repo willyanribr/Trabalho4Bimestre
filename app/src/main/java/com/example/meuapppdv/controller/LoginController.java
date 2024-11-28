@@ -51,9 +51,6 @@ public class LoginController {
         } catch (Exception ex) {
             //  "Erro ao encontrar Usuario."+ex.getMessage();}
         }
-        /** public ArrayList<Login> retornarLogin(){
-         return LoginDao.getInstancia(context).getAll();
-         }**/
         return null;
     }
 }
